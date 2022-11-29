@@ -1,0 +1,9 @@
+.element__vector {
+    display: flex;
+    align-self: center;
+    background-image: url(../../../images/heart.svg);
+    object-fit: cover;
+    max-width: 22px;
+    min-height: 19px;
+    width: 100%;
+}
