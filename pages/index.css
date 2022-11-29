@@ -1,0 +1,4 @@
+@import url(../vendor/Normalize.css);
+@import url(../vendor/fonts/inter.css);
+/*Страница*/
+@import url(../blocks/page/page.css);
