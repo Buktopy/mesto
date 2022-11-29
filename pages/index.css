@@ -1,0 +1,8 @@
+@import url(../vendor/Normalize.css);
+@import url(../vendor/fonts/inter.css);
+/*Страница*/
+@import url(../blocks/page/page.css);
+/*Блок header*/
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/header/__line/header__line.css);
