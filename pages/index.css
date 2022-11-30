@@ -24,3 +24,12 @@
 /*Блок footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+/*Блок popup*/
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__close/popup__close.css);
+@import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__text/popup__text.css);
+@import url(../blocks/popup/__name/popup__name.css);
+@import url(../blocks/popup/__about/popup__about.css);
+@import url(../blocks/popup/__save-button/popup__save-button.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
