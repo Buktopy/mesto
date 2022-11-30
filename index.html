@@ -10,75 +10,78 @@
 
 <body class="page">
     <header class="header">
-        <div class="header__logo"></div>
-        <div class="header__line"></div>
+        <img class="header__logo" alt="Лого" src="./images/header__logo.svg" media="(max-width: 425px)"
+            srcset="./images/header__logo_mobile.svg">>
     </header>
     <main class="content">
         <section class="profile">
             <img class="profile__avatar" src="./images/profile__image.jpg" alt="Фото профиля">
             <div class="profile__info">
                 <h1 class="profile__name">Жак Ив Кусто</h1>
-                <button type="button" class="profile__button"></button>
+                <button type="button" class="profile__button" aria-label="button"></button>
                 <h2 class="profile__about">Исследователь океана</h2>
             </div>
-            <button type="button" class="profile__add-button"></button>
+            <button type="button" class="profile__add-button" aria-label="button"></button>
         </section>
-        <div class="elements">
-            <div class="element">
+        <section class="elements">
+            <article class="element">
                 <img class="element__image" src="./images/KPL.jpg" alt="Киевско-печерская лавра">
                 <div class="element__group">
-                    <p class="element__text">Киевско-печерская лавра</p>
-                    <div class="element__vector"></div>
+                    <h2 class="element__text">Киевско-печерская лавра</h2>
+                    <button type="button" class="element__vector"></button>
                 </div>
-            </div>
-            <div class="element">
+            </article>
+            <article class="element">
                 <img class="element__image" src="./images/Vladimir.jpg" alt="Владимирская церковь">
                 <div class="element__group">
-                    <p class="element__text">Владимир</p>
-                    <div class="element__vector"></div>
+                    <h2 class="element__text">Владимир</h2>
+                    <button type="button" class="element__vector"></button>
                 </div>
-            </div>
-            <div class="element">
+            </article>
+            <article class="element">
                 <img class="element__image" src="./images/Karelia.jpg" alt="Карелия">
                 <div class="element__group">
-                    <p class="element__text">Карелия</p>
-                    <div class="element__vector"></div>
+                    <h2 class="element__text">Карелия</h2>
+                    <button type="button" class="element__vector"></button>
                 </div>
-            </div>
-            <div class="element">
+            </article>
+            <article class="element">
                 <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="Поле">
                 <div class="element__group">
-                    <p class="element__text">Гора Эльбрус</p>
-                    <div class="element__vector"></div>
+                    <h2 class="element__text">Гора Эльбрус</h2>
+                    <button type="button" class="element__vector"></button>
                 </div>
-            </div>
-            <div class="element">
+            </article>
+            <article class="element">
                 <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Горы">
                 <div class="element__group">
-                    <p class="element__text">Домбай</p>
-                    <div class="element__vector"></div>
+                    <h2 class="element__text">Домбай</h2>
+                    <button type="button" class="element__vector"></button>
                 </div>
-            </div>
-            <div class="element">
-                <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевская церковь">
+            </article>
+            <article class="element">
+                <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg"
+                    alt="Карачаевская церковь">
                 <div class="element__group">
-                    <p class="element__text">Карачаево-Черкесская республика</p>
-                    <div class="element__vector"></div>
+                    <h2 class="element__text">Карачаево-Черкесская республика</h2>
+                    <button type="button" class="element__vector"></button>
                 </div>
-            </div>
-        </div>
+            </article>
+        </section>
     </main>
     <footer class="footer">
         <small class="footer__copyright">© 2020 Mesto Russia</small>
     </footer>
     <div class="popup">
-        <form class="popup__form">
-            <div class="popup__close"></div>
-            <p class="popup__text">Редактировать профиль</p>
-            <input type="text" class="popup__name" placeholder="Введите имя">
-            <input type="text" class="popup__about" placeholder="О себе">
-            <button class="popup__save-button">Сохранить</button>
-        </form>
+        <div class="popup__container">
+            <form name="name" class="popup__form">
+                <button type="button" class="popup__close"></div>
+                <h2 class="popup__text">Редактировать профиль</h2>
+                <input type="text" class="popup__name" placeholder="Введите имя">
+                <input type="text" class="popup__about" placeholder="О себе">
+                <button class="popup__save-button" aria-label="button">Сохранить</button>
+            </form>
+        </div>
     </div>
     <script src="./script/index.js"></script>
 </body>

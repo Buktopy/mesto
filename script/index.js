@@ -1,29 +1,43 @@
-let profileButton = document.querySelector('.profile__button');
-let popup = document.querySelector('.popup');
-let inputName = document.querySelector('.popup__name');
-let inputAbout = document.querySelector('.popup__about');
-let profileName = document.querySelector('.profile__name');
-let profileAbout = document.querySelector('.profile__about');
-let popupClose = document.querySelector('.popup__close');
-let submitButton = document.querySelector('.popup__save-button');
-let formElement = document.querySelector('.popup__form');
+const profileButton = document.querySelector('.profile__button');
+const popup = document.querySelector('.popup');
+const inputName = document.querySelector('.popup__name');
+const inputAbout = document.querySelector('.popup__about');
+const profileName = document.querySelector('.profile__name');
+const profileAbout = document.querySelector('.profile__about');
+const popupClose = document.querySelector('.popup__close');
+const formElement = document.querySelector('.popup__form');
 
-profileButton.addEventListener('click', popupOpen);
+/*Открытие всплывающего окна с данными из профиля*/
 function popupOpen(event) {
-    popup.classList.toggle('popup_opened');
-    inputName.value = profileName.textContent;
-    inputAbout.value = profileAbout.textContent;
+    if (popup.classList.contains('.popup__opened')) {
+        return
+    }
+    else {
+        popup.classList.add('popup_opened');
+        inputName.value = profileName.textContent;
+        inputAbout.value = profileAbout.textContent;
+    }
 }
 
-popupClose.addEventListener('click', popupClosed);
+/*Закрытие всплывающего окна без сохранения изменений*/
 function popupClosed(event) {
-    popup.classList.toggle('popup_opened');
+    popup.classList.remove('popup_opened');
 }
 
-function handleFormSubmit (evt) {
+
+/*Cохранение введенных данных при нажатии кнопки "Cохранить"*/
+function handleFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = inputName.value;
     profileAbout.textContent = inputAbout.value;
     popupClosed();
 }
+
+/*10 Открытие всплывающего окна с данными из профиля*/
+profileButton.addEventListener('click', popupOpen);
+
+/*23 Закрытие всплывающего окна без сохранения изменений*/
+popupClose.addEventListener('click', popupClosed);
+
+/*28 Cохранение введенных данных при нажатии кнопки "Cохранить"*/
 formElement.addEventListener('submit', handleFormSubmit); 

@@ -10,12 +10,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-}
-
-@media screen and (max-width: 768px) {
-    .profile__name {
-        width: 100%;
-    }
+    text-align: end;
+    grid-area: name;
 }
 
 @media screen and (max-width: 425px) {

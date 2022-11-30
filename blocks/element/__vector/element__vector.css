@@ -6,6 +6,9 @@
     max-width: 22px;
     min-height: 19px;
     width: 100%;
+    border: none;
+    padding: 0;
+    background-color: white;
 }
 
 .element__vector:hover {
@@ -15,11 +18,5 @@
 
 .element__vector:active {
     background-image: url(../../../images/heart_active.svg);
-    display: flex;
-    align-self: center;
-    object-fit: cover;
-    max-width: 22px;
-    min-height: 19px;
-    width: 100%;
     opacity: 1;
 }

@@ -7,16 +7,16 @@
     font-size: 18px;
     line-height: 22px;
     color: #FFFFFF;
-    margin: 16px 0 0 0;
+    margin: 0;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    grid-area: about;
 }
 
 @media screen and (max-width: 768px) {
     .profile__about {
-        margin: 14px auto 0 auto;
-        font-size: 27px;
+        font-size: 24px;
         line-height: 33px;
         text-align: center;
     }
@@ -24,6 +24,7 @@
 
 @media screen and (max-width: 425px) {
     .profile__about {
+        max-width: 282px;
         font-size: 14px;
         line-height: 17px;
     }
