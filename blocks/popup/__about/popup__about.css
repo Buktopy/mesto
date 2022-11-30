@@ -1,0 +1,22 @@
+.popup__about {
+    width: 358px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    margin: 30px auto 0 auto;
+    border: none;
+    padding-bottom: 13px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 425px) {
+    .popup__about {
+    max-width: 238px;
+    }
+}

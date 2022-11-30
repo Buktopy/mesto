@@ -7,6 +7,12 @@
     object-fit: cover;
 }
 
+@media screen and (max-width: 900px) {
+    .header__logo {
+        margin-left: 5%;
+    }
+}
+
 @media screen and (max-width: 425px) {
     .header__logo {
         background-image: url(../../../images/header__logo_mobile.svg);

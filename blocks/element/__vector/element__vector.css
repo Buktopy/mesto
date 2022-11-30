@@ -7,3 +7,19 @@
     min-height: 19px;
     width: 100%;
 }
+
+.element__vector:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.element__vector:active {
+    background-image: url(../../../images/heart_active.svg);
+    display: flex;
+    align-self: center;
+    object-fit: cover;
+    max-width: 22px;
+    min-height: 19px;
+    width: 100%;
+    opacity: 1;
+}
