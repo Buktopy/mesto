@@ -9,13 +9,13 @@
     object-fit: cover;
     border: 2px solid #FFFFFF;
     border-radius: 2px;
-    margin: auto 0 auto auto;
+    margin: 0 0 15px auto;
     padding: 0;
 }
 
 @media screen and (max-width: 892px) {
     .profile__add-button {
-        margin: auto 12px auto auto;
+        margin-right: 5%;
     }
 }
 
@@ -28,7 +28,11 @@
 
 @media screen and (max-width: 425px) {
     .profile__add-button {
+        background: url(../../../images/profile__add-button_mobile.svg);
+        background-position: center;
+        background-repeat: no-repeat;
         max-width: 282px;
+        margin: 36px;
     }
 }
 
