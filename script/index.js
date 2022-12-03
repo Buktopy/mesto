@@ -1,7 +1,7 @@
 const profileButton = document.querySelector('.profile__button');
 const popup = document.querySelector('.popup');
-const inputName = document.querySelector('.popup__name');
-const inputAbout = document.querySelector('.popup__about');
+const inputName = document.querySelector('.popup__input-text_type_name');
+const inputAbout = document.querySelector('.popup__input-text_type_about');
 const profileName = document.querySelector('.profile__name');
 const profileAbout = document.querySelector('.profile__about');
 const popupClose = document.querySelector('.popup__close');
@@ -9,7 +9,7 @@ const formElement = document.querySelector('.popup__form');
 
 /*Открытие всплывающего окна с данными из профиля*/
 function popupOpen(event) {
-    if (popup.classList.contains('.popup__opened')) {
+    if (popup.classList.contains('popup__opened')) {
         return
     }
     else {

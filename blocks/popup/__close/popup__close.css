@@ -26,20 +26,9 @@
 @media screen and (max-width:425px) {
     .popup__close {
         max-width: 20px;
-        width: 100%;
-        min-height: 20px;
-        right: -20px;
-        top: -20px;
-    }
-}
-
-@media screen and (max-width:320px) {
-    .popup__close {
-        max-width: 20px;
-        width: 100%;
         min-height: 20px;
         right: 0;
-        top: -25px;
+        top: -36px;
     }
 }
 
