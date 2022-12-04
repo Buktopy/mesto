@@ -1,8 +1,9 @@
 .header__logo {
     display: block;
+    background: url(../../../images/header__logo.svg) center no-repeat;
     max-width: 142px;
     width: 100%;
-    max-height: 33px;
+    min-height: 33px;
 }
 
 @media screen and (max-width: 900px) {
@@ -13,9 +14,9 @@
 
 @media screen and (max-width: 425px) {
     .header__logo {
-        size: 142px;
+        background: url(../../../images/header__logo_mobile.svg) center no-repeat;
         max-width: 104px;
-        max-height: 24.5px;
+        min-height: 24.5px;
         margin-left: 27px;
     }
 }
