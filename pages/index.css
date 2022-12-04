@@ -1,4 +1,4 @@
-@import url(../vendor/normalize.css);
+@import url(../vendor/normalize-v8.0.1.css);
 @import url(../vendor/fonts/inter.css);
 /*Страница*/
 @import url(../blocks/page/page.css);
