@@ -9,14 +9,9 @@ const formElement = document.querySelector('.popup__form');
 
 /*Открытие всплывающего окна с данными из профиля*/
 function popupOpen(event) {
-    if (popup.classList.contains('popup__opened')) {
-        return
-    }
-    else {
-        popup.classList.add('popup_opened');
-        inputName.value = profileName.textContent;
-        inputAbout.value = profileAbout.textContent;
-    }
+    popup.classList.add('popup_opened');
+    inputName.value = profileName.textContent;
+    inputAbout.value = profileAbout.textContent;
 }
 
 /*Закрытие всплывающего окна без сохранения изменений*/

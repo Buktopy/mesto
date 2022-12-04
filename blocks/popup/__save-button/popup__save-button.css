@@ -13,11 +13,13 @@
     color: #FFFFFF;
     margin: 48px auto 37px auto;
     min-height: 50px;
+    padding: 0;
 }
 
 @media screen and (max-width: 425px) {
     .popup__save-button {
         max-width: 238px;
+        min-height: 46px;
         font-size: 14px;
         line-height: 17px;
         margin: 45px auto 25px auto;
