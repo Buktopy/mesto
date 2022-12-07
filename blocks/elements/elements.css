@@ -13,6 +13,6 @@
 
 @media screen and (max-width: 425px) {
     .elements {
-        margin-top: 36px;
+        margin-top: 0;
     }
 }

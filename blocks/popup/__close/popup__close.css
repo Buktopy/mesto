@@ -16,14 +16,14 @@
     opacity: 1;
 }
 
-@media screen and (max-width:520px) {
+@media screen and (max-width:525px) {
     .popup__close {
         right: 0;
         top: -45px;
     }
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:450px) {
     .popup__close {
         max-width: 20px;
         min-height: 20px;

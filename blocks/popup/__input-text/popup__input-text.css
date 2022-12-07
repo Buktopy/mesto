@@ -15,7 +15,7 @@
     text-overflow: ellipsis;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 450px) {
     .popup__input-text {
     max-width: 238px;
     }
