@@ -63,7 +63,7 @@ const createCard = (cardText, cardImage) => {
 }
 
 // Функция добавления новой карточки в массив
-const popupAddCardSubmit = document.querySelector('.popup_add-button');
+const popupAddCardSubmit = document.querySelector('.popup__form_add-button');
 const popupAddTitleInput = document.querySelector('.popup__input-text_type_title');
 const popupAddImageSrcInput = document.querySelector('.popup__input-text_type_image-src');
 
