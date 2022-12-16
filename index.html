@@ -23,55 +23,12 @@
             <button type="button" class="profile__add-button" aria-label="Добавить"></button>
         </section>
         <section class="elements">
-            <article class="element">
-                <img class="element__image" src="./images/KPL.jpg" alt="Киевско-печерская лавра">
-                <div class="element__group">
-                    <h2 class="element__text">Киевско-печерская лавра</h2>
-                    <button type="button" class="element__vector" aria-label="Нравится"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__image" src="./images/Vladimir.jpg" alt="Владимирская церковь">
-                <div class="element__group">
-                    <h2 class="element__text">Владимир</h2>
-                    <button type="button" class="element__vector" aria-label="Нравится"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__image" src="./images/Karelia.jpg" alt="Карелия">
-                <div class="element__group">
-                    <h2 class="element__text">Карелия</h2>
-                    <button type="button" class="element__vector" aria-label="Нравится"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.png" alt="Поле">
-                <div class="element__group">
-                    <h2 class="element__text">Гора Эльбрус</h2>
-                    <button type="button" class="element__vector" aria-label="Нравится"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.png" alt="Горы">
-                <div class="element__group">
-                    <h2 class="element__text">Домбай</h2>
-                    <button type="button" class="element__vector" aria-label="Нравится"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg"
-                    alt="Карачаевская церковь">
-                <div class="element__group">
-                    <h2 class="element__text">Карачаево-Черкесская республика</h2>
-                    <button type="button" class="element__vector" aria-label="Нравится"></button>
-                </div>
-            </article>
         </section>
     </main>
     <footer class="footer">
         <small class="footer__copyright">© 2020 Mesto Russia</small>
     </footer>
-    <div class="popup">
+    <div class="popup popup_edit-profile">
         <div class="popup__container">
             <button type="button" class="popup__close" aria-label="Закрыть"></button>
             <h2 class="popup__text">Редактировать профиль</h2>
@@ -80,10 +37,41 @@
                     placeholder="Введите имя">
                 <input name="about" type="text" class="popup__input-text popup__input-text_type_about"
                     placeholder="О себе">
-                <button type="submit" name="submitForm" class="popup__save-button" aria-label="Подтвердить">Сохранить</button>
+                <button type="submit" name="submitForm" class="popup__save-button"
+                    aria-label="Подтвердить">Сохранить</button>
             </form>
         </div>
     </div>
+    <div class="popup popup_add-element">
+        <div class="popup__container">
+            <button type="button" class="popup__close" aria-label="Закрыть"></button>
+            <h2 class="popup__text">Новое место</h2>
+            <form name="form" class="popup__form popup_add-button">
+                <input name="name" type="text" class="popup__input-text popup__input-text_type_title"
+                    placeholder="Название">
+                <input name="about" type="text" class="popup__input-text popup__input-text_type_image-src"
+                    placeholder="Ссылка на картинку">
+                <button type="submit" name="submitForm" class="popup__save-button"
+                    aria-label="Подтвердить">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    <div class="popup popup_open-image">
+        <figure class="popup__img-container">
+            <button type="button" class="popup__close" aria-label="Закрыть"></button>
+            <img class="popup__image">
+            <figcaption class="popup__title"></figcaption>
+        </figure>
+    </div>
+    <template id="card">
+        <article class="element">
+            <img class="element__image" alt>
+            <div class="element__group">
+                <h2 class="element__text"></h2>
+                <button type="button" class="element__vector" aria-label="Нравится"></button>
+            </div>
+            <button type="button" class="element__trash-button"></button>
+    </template>
     <script src="./script/index.js"></script>
 </body>
 

@@ -17,9 +17,11 @@
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__image/element__image.css);
+@import url(../blocks/element/__trash-button/element__trash-button.css);
 @import url(../blocks/element/__group/element__group.css);
 @import url(../blocks/element/__text/element__text.css);
 @import url(../blocks/element/__vector/element__vector.css);
+@import url(../blocks/element/__vector/_active/element__vector_active.css);
 /*Блок footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
@@ -27,6 +29,9 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__img-container/popup__img-container.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__text/popup__text.css);
 @import url(../blocks/popup/__input-text/popup__input-text.css);
