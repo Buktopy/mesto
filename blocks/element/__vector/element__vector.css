@@ -9,14 +9,10 @@
     border: none;
     padding: 0;
     background-color: white;
+    margin-right: 5px;
 }
 
 .element__vector:hover {
     opacity: 0.5;
     cursor: pointer;
-}
-
-.element__vector:active {
-    background-image: url(../../../images/heart_active.svg);
-    opacity: 1;
 }
