@@ -1,35 +1,7 @@
-/*Массив с карточками, отображаемый на странице*/
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-
 /*Правила создания карточек из массива*/
 const createCard = (cardText, cardImage) => {
-    const elementTemplate = document.querySelector('#card').content;
-    const elementCard = elementTemplate.querySelector('.element').cloneNode(true);
+    const elementTemplate = document.querySelector('#card').content.querySelector('.element');
+    const elementCard = elementTemplate.cloneNode(true);
     elementImage = elementCard.querySelector('.element__image');
     elementText = elementCard.querySelector('.element__text');
     elementImage.src = cardImage;
@@ -48,14 +20,14 @@ const createCard = (cardText, cardImage) => {
         elementCard.remove();
     });
     // Открытие фотографии в полном разрешении
-    const popupImageSrc = document.querySelector('.popup__image');
+    const popupImagePicture = document.querySelector('.popup__image');
     const popupTitle = document.querySelector('.popup__title');
 
     elementCard.querySelector('.element__image').addEventListener('click', function () {
         openPopup(popupOpenImage);
 
-        popupImageSrc.src = cardImage;
-        popupImageSrc.alt = cardText;
+        popupImagePicture.src = cardImage;
+        popupImagePicture.alt = cardText;
         popupTitle.textContent = cardText;
     });
 
@@ -63,7 +35,7 @@ const createCard = (cardText, cardImage) => {
 }
 
 // Функция добавления новой карточки в массив
-const popupAddCardSubmit = document.querySelector('.popup__form_add-button');
+const popupAddCardForm = document.querySelector('.popup__form_add-button');
 const popupAddTitleInput = document.querySelector('.popup__input-text_type_title');
 const popupAddImageSrcInput = document.querySelector('.popup__input-text_type_image-src');
 
@@ -77,17 +49,16 @@ function submitAddCard(evt) {
 
     closePopup(popupAddElement);
 
-    popupAddTitleInput.value = "";
-    popupAddImageSrcInput.value = "";
+    popupAddCardForm.reset();
 };
 
-popupAddCardSubmit.addEventListener('submit', submitAddCard);
+popupAddCardForm.addEventListener('submit', submitAddCard);
 
 /*Добавление всех карточек из массива в блок elements*/
 const elementsContainer = document.querySelector('.elements');
 
-const addCard = (cardNew) => {
-    elementsContainer.prepend(cardNew);
+const addCard = (newCard) => {
+    elementsContainer.prepend(newCard);
 };
 
 initialCards.forEach((item) => {
@@ -100,7 +71,7 @@ const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupOpenImage = document.querySelector('.popup_open-image');
 // Переменные с кнопками- добавить карточку, редактирование профиля соответственно
 const addButton = document.querySelector('.profile__add-button');
-const profileButton = document.querySelector('.profile__button');
+const profileEditButton = document.querySelector('.profile__edit-button');
 // Переменные с полями ввода и информацией в профиле, соответственно 
 const inputName = document.querySelector('.popup__input-text_type_name');
 const inputAbout = document.querySelector('.popup__input-text_type_about');
@@ -113,7 +84,7 @@ function openPopup(item) {
 };
 
 // Открытие окна редактирования профиля
-profileButton.addEventListener('click', function () {
+profileEditButton.addEventListener('click', function () {
     openPopup(popupEditProfile);
     inputName.value = profileName.textContent;
     inputAbout.value = profileAbout.textContent;
@@ -125,25 +96,25 @@ addButton.addEventListener('click', function () {
 });
 
 /*Закрытие всплывающего окна без сохранения изменений(для всех всплывающих окон)*/
-const popupClose = document.querySelectorAll('.popup__close');
+const popupCloseButtons = document.querySelectorAll('.popup__close');
 
 function closePopup(item) {
     item.classList.remove('popup_opened');
 };
 
-popupClose.forEach(btn => btn.addEventListener('click', () => {
+popupCloseButtons.forEach(btn => btn.addEventListener('click', () => {
     const popup = btn.closest('.popup');
     closePopup(popup);
 }));
 
 /*Cохранение введенных данных при нажатии кнопки "Cохранить"*/
-const formElement = document.querySelector('.popup__form');
+const profileEditForm = document.querySelector('.popup__form_edit-profile');
 
-function handleFormSubmit(evt) {
+function editFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = inputName.value;
     profileAbout.textContent = inputAbout.value;
     closePopup(popupEditProfile);
 }
 
-formElement.addEventListener('submit', handleFormSubmit); 
+profileEditForm.addEventListener('submit', editFormSubmit); 
