@@ -11,4 +11,4 @@
 
 **Figma**
 
-* [Ссылка на макет в GITHUB PAGES](https://buktopy.github.io/mesto/)
+* [Ссылка на страницу GITHUB PAGES](https://buktopy.github.io/mesto/)
