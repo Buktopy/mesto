@@ -10,7 +10,7 @@
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
-@import url(../blocks/profile/__button/profile__button.css);
+@import url(../blocks/profile/__button/profile__edit-button.css);
 @import url(../blocks/profile/__about/profile__about.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 /*Блок element/elements*/
@@ -27,6 +27,7 @@
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 /*Блок popup*/
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_open-image/popup_open-image.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__img-container/popup__img-container.css);

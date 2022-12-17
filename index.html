@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
+    <script defer src="./script/cards.js"></script>
+    <script defer src="./script/index.js"></script>
     <title>Mesto</title>
 </head>
 
@@ -17,7 +19,7 @@
             <img class="profile__avatar" src="./images/profile__image.jpg" alt="Фото профиля">
             <div class="profile__info">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <button type="button" class="profile__button" aria-label="Редактировать"></button>
+                <button type="button" class="profile__edit-button" aria-label="Редактировать"></button>
                 <h2 class="profile__about">Исследователь океана</h2>
             </div>
             <button type="button" class="profile__add-button" aria-label="Добавить"></button>
@@ -32,10 +34,10 @@
         <div class="popup__container">
             <button type="button" class="popup__close" aria-label="Закрыть"></button>
             <h2 class="popup__text">Редактировать профиль</h2>
-            <form name="form" class="popup__form">
-                <input name="name" type="text" class="popup__input-text popup__input-text_type_name"
+            <form name="form" class="popup__form popup__form_edit-profile">
+                <input required name="name" type="text" class="popup__input-text popup__input-text_type_name"
                     placeholder="Введите имя">
-                <input name="about" type="text" class="popup__input-text popup__input-text_type_about"
+                <input required name="about" type="text" class="popup__input-text popup__input-text_type_about"
                     placeholder="О себе">
                 <button type="submit" name="submitForm" class="popup__save-button"
                     aria-label="Подтвердить">Сохранить</button>
@@ -46,10 +48,10 @@
         <div class="popup__container">
             <button type="button" class="popup__close" aria-label="Закрыть"></button>
             <h2 class="popup__text">Новое место</h2>
-            <form name="form" class="popup__form popup__form_add-button">
-                <input name="name" type="text" class="popup__input-text popup__input-text_type_title"
+            <form  name="form" class="popup__form popup__form_add-button">
+                <input required name="name" type="text" class="popup__input-text popup__input-text_type_title"
                     placeholder="Название">
-                <input name="about" type="text" class="popup__input-text popup__input-text_type_image-src"
+                <input required name="about" type="url" class="popup__input-text popup__input-text_type_image-src"
                     placeholder="Ссылка на картинку">
                 <button type="submit" name="submitForm" class="popup__save-button"
                     aria-label="Подтвердить">Сохранить</button>
@@ -70,10 +72,9 @@
                 <h2 class="element__text"></h2>
                 <button type="button" class="element__vector" aria-label="Нравится"></button>
             </div>
-            <button type="button" class="element__trash-button"></button>
+            <button type="button" aria-label="Удалить элемент" class="element__trash-button"></button>
         </article>
     </template>
-    <script src="./script/index.js"></script>
 </body>
 
 </html>
