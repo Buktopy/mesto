@@ -1,0 +1,22 @@
+.popup__input-error_visible {
+    display: block;
+    max-width: 358px;
+    width: 100%;
+    font-family: 'Inter', 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    min-height: 30px;
+    margin: 0;
+    padding: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #FF0000;
+}
+
+@media screen and (max-width: 450px) {
+    .popup__input-error_visible {
+    max-width: 238px;
+    }
+}
