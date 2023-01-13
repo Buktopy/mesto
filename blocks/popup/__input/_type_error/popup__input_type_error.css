@@ -1,6 +1,4 @@
-.pop__input_type_error {
-    margin-bottom: 0;
-    padding-bottom: 13px;
+.popup__input_type_error {
     border-bottom: 1px solid #FF0000;
-    line-height: 14px;
+
 }

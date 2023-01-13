@@ -30,3 +30,8 @@
     opacity: .8;
     cursor: pointer;
 }
+
+.popup__button:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
