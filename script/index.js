@@ -93,16 +93,15 @@ profileEditButton.addEventListener('click', function () {
 });
 
 // Открытие окна добавления карточки
-const AddCardFormInputs = Array.from(popupAddCardForm.querySelectorAll('.popup__input'));
-const AddCardSubmitButton = popupAddCardForm.querySelector('.popup__button_add-card')
+const addCardFormInputs = Array.from(popupAddCardForm.querySelectorAll('.popup__input'));
+const addCardSubmitButton = popupAddCardForm.querySelector('.popup__button_add-card')
 
 addButton.addEventListener('click', function () {
     openPopup(popupAddElement);
     popupAddTitleInput.value = '';
     popupAddImageSrcInput.value = '';
-    hideInputError(popupAddCardForm, popupAddTitleInput, validationConfig);     // ¯\_(ツ
-    hideInputError(popupAddCardForm, popupAddImageSrcInput, validationConfig);  //        )_/¯ Выключение прошлых ошибок, если инпут был изменен, закрыт без изменений, и открыт обратно
-    toggleButtonState(AddCardFormInputs, AddCardSubmitButton, validationConfig);
+    hideInputError(popupAddCardForm, popupAddTitleInput, validationConfig);
+    hideInputError(popupAddCardForm, popupAddImageSrcInput, validationConfig);  
 });
 
 //Общая функция закрытия попапа
