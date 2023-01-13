@@ -1,9 +1,12 @@
 /*Правила создания карточек из массива*/
+const elementTemplate = document.querySelector('#card').content.querySelector('.element');
+const popupImagePicture = document.querySelector('.popup__image');
+const popupTitle = document.querySelector('.popup__title');
+
 const createCard = (cardText, cardImage) => {
-    const elementTemplate = document.querySelector('#card').content.querySelector('.element');
     const elementCard = elementTemplate.cloneNode(true);
-    elementImage = elementCard.querySelector('.element__image');
-    elementText = elementCard.querySelector('.element__text');
+    const elementImage = elementCard.querySelector('.element__image');
+    const elementText = elementCard.querySelector('.element__text');
     elementImage.src = cardImage;
     elementText.textContent = cardText;
     elementImage.alt = cardText;
@@ -20,10 +23,8 @@ const createCard = (cardText, cardImage) => {
         elementCard.remove();
     });
     // Открытие фотографии в полном разрешении
-    const popupImagePicture = document.querySelector('.popup__image');
-    const popupTitle = document.querySelector('.popup__title');
 
-    elementCard.querySelector('.element__image').addEventListener('click', function () {
+    elementImage.addEventListener('click', function () {
         openPopup(popupOpenImage);
 
         popupImagePicture.src = cardImage;
@@ -35,7 +36,7 @@ const createCard = (cardText, cardImage) => {
 }
 
 // Функция добавления новой карточки в массив
-const popupAddCardForm = document.querySelector('.popup__form_add-button');
+const popupAddCardForm = document.querySelector('.popup__form_add-card');
 const popupAddTitleInput = document.querySelector('.popup__input_type_title');
 const popupAddImageSrcInput = document.querySelector('.popup__input_type_image-src');
 
@@ -92,8 +93,16 @@ profileEditButton.addEventListener('click', function () {
 });
 
 // Открытие окна добавления карточки
+const AddCardFormInputs = Array.from(popupAddCardForm.querySelectorAll('.popup__input'));
+const AddCardSubmitButton = popupAddCardForm.querySelector('.popup__button_add-card')
+
 addButton.addEventListener('click', function () {
     openPopup(popupAddElement);
+    popupAddTitleInput.value = '';
+    popupAddImageSrcInput.value = '';
+    hideInputError(popupAddCardForm, popupAddTitleInput, validationConfig);     // ¯\_(ツ
+    hideInputError(popupAddCardForm, popupAddImageSrcInput, validationConfig);  //        )_/¯ Выключение прошлых ошибок, если инпут был изменен, закрыт без изменений, и открыт обратно
+    toggleButtonState(AddCardFormInputs, AddCardSubmitButton, validationConfig);
 });
 
 //Общая функция закрытия попапа
@@ -103,13 +112,12 @@ function closePopup(item) {
 };
 
 //Закрытие попапа на оверлей или крестик
-const closePopupWindow = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
 
-closePopupWindow.forEach(btn => {
+popups.forEach(btn => {
     btn.addEventListener('mousedown', (evt) => {
         if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__close')) {
-            const popup = document.querySelector('.popup_opened');
-            closePopup(popup);
+            closePopup(btn);
         };
     });
 });
