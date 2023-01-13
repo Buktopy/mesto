@@ -101,7 +101,8 @@ addButton.addEventListener('click', function () {
     popupAddTitleInput.value = '';
     popupAddImageSrcInput.value = '';
     hideInputError(popupAddCardForm, popupAddTitleInput, validationConfig);
-    hideInputError(popupAddCardForm, popupAddImageSrcInput, validationConfig);  
+    hideInputError(popupAddCardForm, popupAddImageSrcInput, validationConfig);
+    toggleButtonState(addCardFormInputs, addCardSubmitButton, validationConfig);
 });
 
 //Общая функция закрытия попапа
