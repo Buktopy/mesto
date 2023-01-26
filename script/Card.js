@@ -17,7 +17,7 @@ export class Card {
     }
 
     _setEventListeners() {                      //Установка обработчиков событий на интерактивные элементы
-        this._element.querySelector('.element__vector').addEventListener('click', () => {
+        this._element.querySelector('.element__like').addEventListener('click', () => {
             this._clickLikeButton();
         });
 
@@ -34,7 +34,7 @@ export class Card {
 
     // Методы для обработчиков событий
     _clickLikeButton() {
-        this._element.querySelector('.element__vector').classList.toggle('element__vector_active'); // Кнопка лайка(Ставит/убирает)
+        this._element.querySelector('.element__like').classList.toggle('element__like_active'); // Кнопка лайка(Ставит/убирает)
     }
 
     _clickTrashButton() {

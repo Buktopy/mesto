@@ -1,4 +1,4 @@
-.element__vector {
+.element__like {
     display: flex;
     align-self: center;
     background-image: url(../../../images/heart.svg);
@@ -12,7 +12,7 @@
     margin-right: 5px;
 }
 
-.element__vector:hover {
+.element__like:hover {
     opacity: 0.5;
     cursor: pointer;
 }
