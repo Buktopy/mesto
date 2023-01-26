@@ -20,8 +20,8 @@
 @import url(../blocks/element/__trash-button/element__trash-button.css);
 @import url(../blocks/element/__group/element__group.css);
 @import url(../blocks/element/__text/element__text.css);
-@import url(../blocks/element/__vector/element__vector.css);
-@import url(../blocks/element/__vector/_active/element__vector_active.css);
+@import url(../blocks/element/__like/element__like.css);
+@import url(../blocks/element/__like/_active/element__like_active.css);
 /*Блок footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
