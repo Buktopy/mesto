@@ -42,7 +42,7 @@ initialCards.forEach((item) => {
 });
 
 // Функция добавления новой карточки в массив
-const popupAddCardForm = document.querySelector('.popup__form_add-button');
+const popupAddCardForm = document.querySelector('.popup__form_add-card');
 const popupAddTitleInput = document.querySelector('.popup__input_type_title');
 const popupAddImageSrcInput = document.querySelector('.popup__input_type_image-src');
 
@@ -92,6 +92,9 @@ profileEditButton.addEventListener('click', function () {
 });                                                 // дизейбл кнопки и ошибки, которые были вызваны прошлым редактированием попапа и закрытием его без изменений
 
 // Открытие окна добавления карточки
+const addCardFormInputs = Array.from(popupAddCardForm.querySelectorAll('.popup__input'));
+const addCardSubmitButton = popupAddCardForm.querySelector('.popup__button_add-card')
+
 addButton.addEventListener('click', function () {
     openPopup(popupAddElement);
     popupAddTitleInput.value = '';                  //
@@ -107,13 +110,12 @@ function closePopup(item) {
 };
 
 //Закрытие попапа на оверлей или крестик
-const closePopupWindow = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
 
-closePopupWindow.forEach(btn => {
+popups.forEach(btn => {
     btn.addEventListener('mousedown', (evt) => {
         if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__close')) {
-            const popup = document.querySelector('.popup_opened');
-            closePopup(popup);
+            closePopup(btn);
         };
     });
 });
