@@ -51,7 +51,6 @@ export class Card {
     }
 
     // Публичный метод, создающий новую карточку
-
     generateCard() {
         this._element = this._getTemplate();            //Копируем разметку
         this._setEventListeners();                      //Устанавливаем обработчики
