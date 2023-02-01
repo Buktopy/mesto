@@ -1,6 +1,4 @@
-import { validationConfig, FormValidator } from "./FormValidator.js";
-
-// Массив с дефолтными карточками 
+// Массив с дефолтными карточками
 export const initialCards = [
     {
         name: 'Архыз',
@@ -28,6 +26,15 @@ export const initialCards = [
     }
 ];
 
+export const validationConfig = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_visible'
+};
+
 // Контейнер для карточек
 export const elementsContainer = document.querySelector('.elements');
 
@@ -54,7 +61,3 @@ export const profileEditButton = document.querySelector('.profile__edit-button')
 
 // Все попапы
 export const popups = document.querySelectorAll('.popup');
-
-// Создание валидации в форме
-export const profileFormValidation = new FormValidator(validationConfig, profileEditForm); // Валидация формы редактирования профиля
-export const AddCardFormValidation = new FormValidator(validationConfig, addCardForm); // Валидация Формы добавления карточки в коллекцию

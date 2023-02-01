@@ -1,8 +1,9 @@
 import {
     elementsContainer, initialCards, addCardForm, popupAddTitleInput, popupAddImageSrcInput, popupAddElement, popupEditProfile, addButton, profileEditButton, inputName, inputAbout,
-    profileName, profileAbout, popups, profileEditForm, profileFormValidation, AddCardFormValidation
+    profileName, profileAbout, popups, profileEditForm, validationConfig
 } from "./constants.js" // Модуль со всеми переменными 
 import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
 
 /*Добавление всех карточек из массива в блок elements*/
 const addCard = (newCard) => {
@@ -91,5 +92,9 @@ function editFormSubmit(evt) {
 
 profileEditForm.addEventListener('submit', editFormSubmit);
 
+// Создание валидации в форме
+const profileFormValidation = new FormValidator(validationConfig, profileEditForm); // Валидация формы редактирования профиля
 profileFormValidation.enableValidation();   // Вызов формы с валидацией. Попап для редактирования профиля 
+
+const AddCardFormValidation = new FormValidator(validationConfig, addCardForm); // Валидация Формы добавления карточки в коллекцию
 AddCardFormValidation.enableValidation();   // Вызов формы с валидацией. Попап для добавления новой карточки в коллекцию
