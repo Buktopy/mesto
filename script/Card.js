@@ -40,9 +40,13 @@ export default class Card {
         this._element.remove();         
     }
 
-    _handleCardClick() {                                                                        // Открывает изображение карточки в полном разрешении в попапе
+    _clickPopupImage() {                                                                        // Открывает изображение карточки в полном разрешении в попапе
         const popupOpenImage = document.querySelector('.popup_open-image');             
         openPopup(popupOpenImage);
+
+        document.querySelector('.popup__image').src = this._link;
+        document.querySelector('.popup__title').textContent = this._name;
+        document.querySelector('.popup__image').alt = this._name;
     }
 
     // Публичный метод, создающий новую карточку
