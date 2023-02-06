@@ -2,8 +2,8 @@ import {
     elementsContainer, initialCards, addCardForm, popupAddTitleInput, popupAddImageSrcInput, popupAddElement, popupEditProfile, addButton, profileEditButton, inputName, inputAbout,
     profileName, profileAbout, popups, profileEditForm, validationConfig
 } from "./constants.js" // Модуль со всеми переменными 
-import { Card } from "./Card.js";
-import { FormValidator } from "./FormValidator.js";
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 /*Добавление всех карточек из массива в блок elements*/
 const addCard = (newCard) => {
