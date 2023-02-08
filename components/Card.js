@@ -1,4 +1,3 @@
-import openPopup from "./index.js"
 export default class Card {
     constructor(data, templateSelector, handleCardClick) {
         this._name = data.name;
@@ -27,7 +26,7 @@ export default class Card {
         });
 
         this._element.querySelector('.element__image').addEventListener('click', () => {
-            this._clickPopupImage();
+            this._handleCardClick(this._name, this._link);
         });
     }
 
@@ -38,15 +37,6 @@ export default class Card {
 
     _clickTrashButton() {                                                                       // Удаление карточки
         this._element.remove();         
-    }
-
-    _clickPopupImage() {                                                                        // Открывает изображение карточки в полном разрешении в попапе
-        const popupOpenImage = document.querySelector('.popup_open-image');             
-        openPopup(popupOpenImage);
-
-        document.querySelector('.popup__image').src = this._link;
-        document.querySelector('.popup__title').textContent = this._name;
-        document.querySelector('.popup__image').alt = this._name;
     }
 
     // Публичный метод, создающий новую карточку
