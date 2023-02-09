@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
 
@@ -14,7 +13,7 @@
     </header>
     <main class="content">
         <section class="profile">
-            <img class="profile__avatar" src="./images/profile__image.jpg" alt="Фото профиля">
+            <img class="profile__avatar" src="<%=require('./images/profile__image.jpg')%>" alt="Фото профиля">
             <div class="profile__info">
                 <h1 class="profile__name">Жак-Ив Кусто</h1>
                 <button type="button" class="profile__edit-button" aria-label="Редактировать"></button>
@@ -55,7 +54,8 @@
                 <input autocomplete="off" required name="about" id="url-input" type="url"
                     class="popup__input popup__input_type_image-src" placeholder="Ссылка на картинку">
                 <span class="popup__input-error url-input-error"></span>
-                <button disabled type="submit" name="submitForm" class="popup__button popup__button_add-card popup__button_disabled"
+                <button disabled type="submit" name="submitForm"
+                    class="popup__button popup__button_add-card popup__button_disabled"
                     aria-label="Подтвердить">Сохранить</button>
             </form>
         </div>
@@ -78,5 +78,5 @@
         </article>
     </template>
 </body>
-<script type="module" src="./pages/index.js"></script>
+
 </html>
