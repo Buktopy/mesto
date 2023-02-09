@@ -1,3 +1,4 @@
+import './index.css';
 import {
     initialCards, addCardForm, popupAddTitleInput, popupAddImageSrcInput, popupAddElement, popupEditProfile, addButton, profileEditButton, inputName, inputAbout,
     profileName, profileAbout, profileEditForm, validationConfig, popupImage
