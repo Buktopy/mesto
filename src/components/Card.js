@@ -4,6 +4,7 @@ export default class Card {
         this._link = data.link;
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
+
     }
 
     _getTemplate() {                            //Подключение к HTML-разметке 
@@ -17,7 +18,7 @@ export default class Card {
     }
 
     _setEventListeners() {                      //Установка обработчиков событий на интерактивные элементы
-        this._element.querySelector('.element__like').addEventListener('click', () => {
+        this._likeButton.addEventListener('click', () => {
             this._clickLikeButton();
         });
 
@@ -25,14 +26,14 @@ export default class Card {
             this._clickTrashButton();
         });
 
-        this._element.querySelector('.element__image').addEventListener('click', () => {
+        this._cardImage.addEventListener('click', () => {
             this._handleCardClick(this._name, this._link);
         });
     }
 
     // Методы для обработчиков событий
     _clickLikeButton() {
-        this._element.querySelector('.element__like').classList.toggle('element__like_active'); // Кнопка лайка(Ставит/убирает)
+        this._likeButton.classList.toggle('element__like_active'); // Кнопка лайка(Ставит/убирает)
     }
 
     _clickTrashButton() {                                                                       // Удаление карточки
@@ -41,11 +42,13 @@ export default class Card {
 
     // Публичный метод, создающий новую карточку
     generateCard() {
-        this._element = this._getTemplate();            //Копируем разметку
+        this._element = this._getTemplate();
+        this._cardImage = this._element.querySelector('.element__image');
+        this._likeButton = this._element.querySelector('.element__like');
         this._setEventListeners();                      //Устанавливаем обработчики
 
-        this._element.querySelector('.element__image').src = this._link;          // Добавление данных в карточку
-        this._element.querySelector('.element__image').alt = this._name;
+        this._cardImage.src = this._link;          // Добавление данных в карточку
+        this._cardImage.alt = this._name;
         this._element.querySelector('.element__title').textContent = this._name;
 
         return this._element;
