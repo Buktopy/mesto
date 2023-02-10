@@ -47,9 +47,9 @@ export default class Card {
         this._likeButton = this._element.querySelector('.element__like');
         this._setEventListeners();                      //Устанавливаем обработчики
 
+        this._element.querySelector('.element__title').textContent = this._name;
         this._cardImage.src = this._link;          // Добавление данных в карточку
         this._cardImage.alt = this._name;
-        this._element.querySelector('.element__title').textContent = this._name;
 
         return this._element;
     }

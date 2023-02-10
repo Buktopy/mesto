@@ -14,15 +14,19 @@ import UserInfo from '../components/UserInfo.js';
 const userInfo = new UserInfo({
     name: profileName,
     about: profileAbout
-})
+});
+
+function createCard(item) {
+    const card = new Card(item, '#card', handleCardClick);
+    return card.generateCard();
+ }
 
 // Создание секции с карточками
 const cardList = new Section({
     items: initialCards,
     renderer: (item) => {
-        const card = new Card(item, '#card', handleCardClick);
-        const newCard = card.generateCard();
-        cardList.addItem(newCard);
+        const card= createCard(item);
+        cardList.addItem(card);
     },
 },
     '.elements'
@@ -50,10 +54,8 @@ profileEditButton.addEventListener('click', () => {     // Логика откр
 
 // Попап ДОБАВЛЕНИЕ КАРТОЧКИ
 
-const addCardPopup = new PopupWithForm(popupAddElement, () => {
-    const card = new Card({ name: popupAddTitleInput.value, link: popupAddImageSrcInput.value }, '#card', handleCardClick);
-    cardList.addItem(card.generateCard());
-    addCardPopup.close();
+const addCardPopup = new PopupWithForm(popupAddElement, (data) => {
+    cardList.addItem(createCard(data));
 });
 
 addButton.addEventListener('click', () => {     //Логика открытия окна добавления карточки 
