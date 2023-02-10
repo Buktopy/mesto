@@ -4,7 +4,7 @@
   "description": "Проектная работа- адаптивно сверстанная страница с применением HTML, CSS и языка Java Script. В проекте реализованы функции и технологии:",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode production",
     "dev": "webpack serve"
   },
   "repository": {
