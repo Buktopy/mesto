@@ -28,6 +28,19 @@
     <footer class="footer">
         <small class="footer__copyright">© 2020 Mesto Russia</small>
     </footer>
+    <div class="popup popup_edit-avatar">
+        <div class="popup__container">
+            <button type="button" class="popup__close" aria-label="Закрыть"></button>
+            <h2 class="popup__text">Обновить аватар</h2>
+            <form name="form" class="popup__form popup__form_edit-avatar" novalidate>
+                <input autocomplete="off" required name="avatar" id="url-input" type="url"
+                    class="popup__input popup__input_type_image-src" placeholder="Ссылка на картинку">
+                <span class="popup__input-error url-input-error"></span>
+                <button type="submit" name="submitForm" class="popup__button"
+                    aria-label="Подтвердить">Сохранить</button>
+            </form>
+        </div>
+    </div>
     <div class="popup popup_delete-card">
         <div class="popup__container">
             <button type="button" class="popup__close" aria-label="Закрыть"></button>
@@ -81,7 +94,7 @@
             <div class="element__group">
                 <h2 class="element__title"></h2>
                 <div class="element__container">
-                <button type="button" class="element__like" aria-label="Нравится"></button>
+                    <button type="button" class="element__like" aria-label="Нравится"></button>
                     <p class="element__like-counter"></p>
                 </div>
             </div>

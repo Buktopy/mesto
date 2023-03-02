@@ -1,8 +1,8 @@
 import { api } from '../components/Api';
 import './index.css';
 import {
-    initialCards, addCardForm, popupAddTitleInput, popupAddImageSrcInput, popupAddElement, popupEditProfile, addButton, profileEditButton, inputName, inputAbout,
-    profileName, profileAbout, profileEditForm, validationConfig, popupImage
+    addCardForm, popupAddElement, popupEditProfile, addButton, profileEditButton, inputName, inputAbout,
+    profileName, profileAbout, profileEditForm, validationConfig, popupImage, profileAvatar, popupAvatar, changeAvatarButton, popupDeleteCard
 } from "../script/constants.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -25,7 +25,8 @@ Promise.all([
 // Информация о пользователе
 const userInfo = new UserInfo({
     name: profileName,
-    about: profileAbout
+    about: profileAbout,
+    avatar: profileAvatar
 });
 
 function createCard(item) {
@@ -64,7 +65,22 @@ profileEditButton.addEventListener('click', () => {     // Логика откр
     profileFormValidation.resetForm();
 });
 
-// Попап ДОБАВЛЕНИЕ КАРТОЧКИ
+// Попап СМЕНА АВАТАРА
+const avatarPopup = new PopupWithForm(popupAvatar, (input) => {
+    api.changeAvatar(input)
+        .then((res) => {
+            userInfo.setUserInfo(res);
+        })
+        .catch(err => console.log(err))
+        .finally(() => {
+            avatarPopup.stopLoading();
+        })
+})
+
+changeAvatarButton.addEventListener('click', () => {
+    avatarFormValidation.resetForm();
+    avatarPopup.open();
+})
 
 const addCardPopup = new PopupWithForm(popupAddElement, (data) => {
     cardList.addItem(createCard(data));
@@ -84,8 +100,11 @@ deleteCardPopup.setEventListeners();
 openImage.setEventListeners();
 
 // Создание валидации в форме
-const profileFormValidation = new FormValidator(validationConfig, profileEditForm); // Валидация формы редактирования профиля
-profileFormValidation.enableValidation();   // Вызов формы с валидацией. Попап для редактирования профиля 
+const avatarFormValidation = new FormValidator(validationConfig, popupAvatar); // Валидация формы смены аватарки
+avatarFormValidation.enableValidation();
 
-const addCardFormValidation = new FormValidator(validationConfig, addCardForm); // Валидация Формы добавления карточки в коллекцию
-addCardFormValidation.enableValidation();   // Вызов формы с валидацией. Попап для добавления новой карточки в коллекцию
+const profileFormValidation = new FormValidator(validationConfig, profileEditForm); // Валидация формы редактирования профиля
+profileFormValidation.enableValidation();
+
+const addCardFormValidation = new FormValidator(validationConfig, addCardForm); // Валидация формы добавления карточки в коллекцию
+addCardFormValidation.enableValidation();
