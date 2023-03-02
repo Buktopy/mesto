@@ -1,90 +1,74 @@
-class Api {
+export default class Api {
     constructor({ baseUrl, headers }) {
-        this._baseUrl = baseUrl;
-        this._headers = headers;
+        this._baseUrl = baseUrl
+        this._headers = headers
     }
 
     _checkServerResponse(res) {
-        if (res.ok) {
-            return res.json();
-        }
+        return res.ok ? res.json() : Promise.reject(`${res.status} ${res.statusText}`);
+    }
 
-        return Promise.reject(`Ошибка: ${res.status}`);
-    };
-
-    getProfile() {
-        return fetch(`${this._baseUrl}/users/me`, {
-            headers: this._headers
-        })
-            .then(this._checkServerResponse);
-    };
-
-    getInitialCards() {
+    getCard() {
         return fetch(`${this._baseUrl}/cards`, {
+            method: 'GET',
             headers: this._headers
-        })
-            .then(this._checkServerResponse);
-    };
+        }).then(res => this._checkServerResponse(res));
+    }
 
-    editProfile(name, about) {
-        return fetch(`${this._baseUrl}/users/me`, {
-            method: "PATCH",
-            headers: this._headers,
-            body: JSON.stringify({
-                name,
-                about
-            })
-        })
-            .then(this._checkServerResponse);
-    };
-
-    addCard(name, link) {
+    setCard({ name, link }) {
         return fetch(`${this._baseUrl}/cards`, {
-            method: "POST",
+            method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
                 name,
                 link
             })
-        })
-            .then(this._checkServerResponse);
+        }).then(res => this._checkServerResponse(res));
     }
 
-    deleteCard(id) {
-        return fetch(`${this._baseUrl}/cards/${id}`, {
-            method: "DELETE",
+    deleteCard(_id) {
+        return fetch(`${this._baseUrl}/cards/${_id}`, {
+            method: 'DELETE',
+            headers: this._headers
+        }).then(res => this._checkServerResponse(res));
+    }
+
+    getUserInfo() {
+        return fetch(`${this._baseUrl}/users/me`, {
+            method: 'GET',
+            headers: this._headers
+        }).then(res => this._checkServerResponse(res));
+    }
+
+    setUserInfo(forms) {
+        return fetch(`${this._baseUrl}/users/me`, {
+            method: 'PATCH',
             headers: this._headers,
-        })
-            .then(this._checkServerResponse);
+            body: JSON.stringify(forms)
+        }).then(res => this._checkServerResponse(res));
     }
 
-    addLike(id) {
-        return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-            method: "PUT",
-            headers: this._headers
-        })
-            .then(this._checkServerResponse);
-    }
-
-    deleteLike(id) {
-        return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-            method: "DELETE",
-            headers: this._headers
-        })
-            .then(this._checkServerResponse);
-    }
-
-    changeAvatar(avatar) {
+    changeAvatar(data) {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
-            method: "PATCH",
+            method: 'PATCH',
             headers: this._headers,
-            body: JSON.stringify({
-                avatar
-            })
-        })
-        .then(this._checkServerResponse);
+            body: JSON.stringify(data)
+        }).then(res => this._checkServerResponse(res));
     }
 
+    setLike(_id) {
+        return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
+            method: 'PUT',
+            headers: this._headers,
+        }).then(res => this._checkServerResponse(res));
+    }
+
+    deleteLike(_id) {
+        return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
+            method: 'DELETE',
+            headers: this._headers,
+        }).then(res => this._checkServerResponse(res));
+    }
 }
 
 
