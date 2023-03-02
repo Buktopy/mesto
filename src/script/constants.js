@@ -43,11 +43,7 @@ export const addCardForm = document.querySelector('.popup__form_add-card'); // �
 export const popupEditProfile = document.querySelector('.popup_edit-profile'); // Попап редактирования профиля
 export const popupAddElement = document.querySelector('.popup_add-element'); // Попап добавления карточки в коллекцию
 export const popupImage = document.querySelector('.popup_open-image');  // Попап картинки
-
-//Инпуты в попапе добавления карточки
-export const popupAddTitleInput = document.querySelector('.popup__input_type_title');
-export const popupAddImageSrcInput = document.querySelector('.popup__input_type_image-src');
-
+export const popupDeleteCard = document.querySelector('.popup_delete-card'); // Попап подтверждения удаления карточки
 // Инпуты редактирования профиля
 export const inputName = document.querySelector('.popup__input_type_name');
 export const inputAbout = document.querySelector('.popup__input_type_about');

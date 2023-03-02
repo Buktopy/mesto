@@ -8,6 +8,7 @@ import FormValidator from "../components/FormValidator.js";
 import PopupWithImage from '../components/PopupWithImage.js';
 import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithDeleteConfirmation from '../components/PopupWithDeleteConfirmation';
 import UserInfo from '../components/UserInfo.js';
 
 // Информация о пользователе
@@ -63,9 +64,12 @@ addButton.addEventListener('click', () => {     //Логика открытия 
     addCardPopup.open();
 });
 
+const deleteCardPopup = new PopupWithDeleteConfirmation(popupDeleteCard);
+
 // Слушатели событий попапов
 addCardPopup.setEventListeners();
 editProfilePopup.setEventListeners();
+deleteCardPopup.setEventListeners();
 openImage.setEventListeners();
 
 // Создание валидации в форме
