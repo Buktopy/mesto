@@ -11,6 +11,7 @@
     background-color: white;
     margin-right: 5px;
     margin-bottom: 3px;
+    transition: .4s ease-in-out;
 }
 
 .element__like:hover {
