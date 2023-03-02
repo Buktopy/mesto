@@ -5,12 +5,14 @@ import {
     profileName, profileAbout, profileEditForm, validationConfig, popupImage, profileAvatar, popupAvatar, changeAvatarButton, popupDeleteCard
 } from "../script/constants.js";
 import Card from "../components/Card.js";
-import FormValidator from "../components/FormValidator.js";
+import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithDeleteConfirmation from '../components/PopupWithDeleteConfirmation';
 import UserInfo from '../components/UserInfo.js';
+import FormValidator from "../components/FormValidator.js";
+
 Promise.all([
     api.getUserInfo(),
     api.getCard()
@@ -57,7 +59,7 @@ const editProfilePopup = new PopupWithForm(popupEditProfile, (input) => {
     userInfo.setUserInfo({ name: input.name, about: input.about });
 });
 
-profileEditButton.addEventListener('click', () => {     // Логика открытия редактирования профиля
+profileEditButton.addEventListener('click', () => {
     editProfilePopup.open();
     const { name, about } = userInfo.getUserInfo();
     inputName.value = name;
@@ -82,18 +84,22 @@ changeAvatarButton.addEventListener('click', () => {
     avatarPopup.open();
 })
 
+// Попап ДОБАВЛЕНИЕ КАРТОЧКИ и обработчик открытия
 const addCardPopup = new PopupWithForm(popupAddElement, (data) => {
     cardList.addItem(createCard(data));
 });
 
-addButton.addEventListener('click', () => {     //Логика открытия окна добавления карточки 
+addButton.addEventListener('click', () => {
     addCardFormValidation.resetForm();
     addCardPopup.open();
 });
 
+// Попап КАРТИНКА КАРТОЧКИ и УДАЛЕНИЕ КАРТОЧКИ
+const openImage = new PopupWithImage(popupImage);
 const deleteCardPopup = new PopupWithDeleteConfirmation(popupDeleteCard);
 
 // Слушатели событий попапов
+avatarPopup.setEventListeners();
 addCardPopup.setEventListeners();
 editProfilePopup.setEventListeners();
 deleteCardPopup.setEventListeners();
