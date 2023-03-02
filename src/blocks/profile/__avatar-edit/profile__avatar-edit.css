@@ -1,0 +1,28 @@
+.profile__avatar-edit {
+    padding: 0;
+    opacity: 0;
+    background-color: #000c;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+}
+
+@media screen and (max-width: 768px) {
+    .profile__avatar-edit {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+.profile__avatar-edit:hover {
+    transition: visibility 0s, opacity 0.5s linear;
+    opacity: .8;
+    cursor: pointer;
+    background-blend-mode: lighten;
+    background-image: url(../../../images/profile-edit.svg);
+}
