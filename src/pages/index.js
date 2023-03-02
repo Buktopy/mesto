@@ -1,3 +1,4 @@
+import { api } from '../components/Api';
 import './index.css';
 import {
     initialCards, addCardForm, popupAddTitleInput, popupAddImageSrcInput, popupAddElement, popupEditProfile, addButton, profileEditButton, inputName, inputAbout,
@@ -10,6 +11,16 @@ import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithDeleteConfirmation from '../components/PopupWithDeleteConfirmation';
 import UserInfo from '../components/UserInfo.js';
+Promise.all([
+    api.getUserInfo(),
+    api.getCard()
+])
+    .then(([profile, cards]) => {
+        userInfo.setUserInfo(profile);
+        cards.reverse();
+        cardList.renderItems(cards);
+    })
+    .catch(err => console.error(err));
 
 // Информация о пользователе
 const userInfo = new UserInfo({
