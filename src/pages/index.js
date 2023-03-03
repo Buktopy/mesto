@@ -2,7 +2,7 @@ import Api from '../components/Api';
 import './index.css';
 import {
     addCardForm, popupAddElement, popupEditProfile, addButton, profileEditButton, inputName, inputAbout,
-    profileName, profileAbout, profileEditForm, validationConfig, popupImage, profileAvatar, popupAvatar, changeAvatarButton, popupDeleteCard
+    profileEditForm, validationConfig, popupImage, popupAvatar, changeAvatarButton, popupDeleteCard
 } from "../script/constants.js";
 import Card from "../components/Card.js";
 import Section from '../components/Section.js';
@@ -33,9 +33,9 @@ Promise.all([
 
 // Информация о пользователе
 const userInfo = new UserInfo({
-    name: profileName,
-    about: profileAbout,
-    avatar: profileAvatar
+    name: ('.profile__name'),
+    about: ('.profile__about'),
+    avatar: ('.profile__avatar')
 });
 
 // Создание секции с карточками
