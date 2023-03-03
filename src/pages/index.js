@@ -1,9 +1,9 @@
 import Api from '../components/Api';
 import './index.css';
 import {
-    addCardForm, popupAddElement, popupEditProfile, addButton, profileEditButton, inputName, inputAbout,
-    profileEditForm, validationConfig, popupImage, popupAvatar, changeAvatarButton, popupDeleteCard
-} from "../script/constants.js";
+    cardAddForm, popupAddElement, popupEditProfile, buttonAddCard, buttonEditProfile, buttonChangeAvatar, inputName, inputAbout,
+    profileEditForm, validationConfig, popupImage, popupAvatar, popupDeleteCard, avatarForm
+} from "../utilis/constants.js";
 import Card from "../components/Card.js";
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
@@ -47,11 +47,11 @@ const cardList = new Section({
             userInfo.getUserId(),
             '#card', {
             handleClickCard: (name, link) => {
-                openImage.open(name, link);
+                cardImage.open(name, link);
             },
 
             handleDeleteCard: (id) => {
-                deleteCardPopup.setSubmitHandler(() => {
+                popupDeleteConfirmation.setSubmitHandler(() => {
                     api
                     .deleteCard(id)
                     .then(() => {
@@ -59,10 +59,10 @@ const cardList = new Section({
                     })
                     .catch((err) => console.log(`Ошибка: ${err}`))
                     .finally(() => {
-                        deleteCardPopup.stopLoading();
+                        popupDeleteConfirmation.stopLoading();
                     })
                 })
-                deleteCardPopup.open();
+                popupDeleteConfirmation.open();
             },
 
             handleLikeCard: (id) => {
@@ -88,19 +88,19 @@ const cardList = new Section({
 );
 
 // Попап РЕДАКТИРОВАНИЕ ПРОФИЛЯ
-const editProfilePopup = new PopupWithForm(popupEditProfile, (input) => {
+const popupProfileForm = new PopupWithForm(popupEditProfile, (input) => {
     api.setUserInfo(input)
         .then((res) => {
             userInfo.setUserInfo(res);
         })
         .catch(err => console.log(`Ошибка: ${err}`))
         .finally(() => {
-            editProfilePopup.stopLoading();
+            popupProfileForm.stopLoading();
         })
 });
 
-profileEditButton.addEventListener('click', () => {
-    editProfilePopup.open();
+buttonEditProfile.addEventListener('click', () => {
+    popupProfileForm.open();
     const { name, about } = userInfo.getUserInfo();
     inputName.value = name;
     inputAbout.value = about;
@@ -108,57 +108,57 @@ profileEditButton.addEventListener('click', () => {
 });
 
 // Попап СМЕНА АВАТАРА
-const avatarPopup = new PopupWithForm(popupAvatar, (input) => {
+const popupAvatarForm = new PopupWithForm(popupAvatar, (input) => {
     api.changeAvatar(input)
         .then((res) => {
             userInfo.setUserInfo(res);
         })
         .catch(err => console.log(err))
         .finally(() => {
-            avatarPopup.stopLoading();
+            popupAvatarForm.stopLoading();
         })
 })
 
-changeAvatarButton.addEventListener('click', () => {
+buttonChangeAvatar.addEventListener('click', () => {
     avatarFormValidation.resetForm();
-    avatarPopup.open();
+    popupAvatarForm.open();
 })
 
 // Попап ДОБАВЛЕНИЕ КАРТОЧКИ и обработчик открытия
-const addCardPopup = new PopupWithForm(popupAddElement, (data) => {
+const popupAddCardForm = new PopupWithForm(popupAddElement, (data) => {
     api.setCard(data)
         .then((res) => {
             cardList.addItem(res)
-            addCardPopup.close();
+            popupAddCardForm.close();
         })
         .catch(err => console.log(`Ошибка: ${err}`))
         .finally(() => {
-            addCardPopup.stopLoading();
+            popupAddCardForm.stopLoading();
         })
 });
 
-addButton.addEventListener('click', () => {
-    addCardFormValidation.resetForm();
-    addCardPopup.open();
+buttonAddCard.addEventListener('click', () => {
+    cardAddFormValidation.resetForm();
+    popupAddCardForm.open();
 });
 
 // Попап КАРТИНКА КАРТОЧКИ и УДАЛЕНИЕ КАРТОЧКИ
-const openImage = new PopupWithImage(popupImage);
-const deleteCardPopup = new PopupWithDeleteConfirmation(popupDeleteCard);
+const cardImage = new PopupWithImage(popupImage);
+const popupDeleteConfirmation = new PopupWithDeleteConfirmation(popupDeleteCard);
 
 // Слушатели событий попапов
-avatarPopup.setEventListeners();
-addCardPopup.setEventListeners();
-editProfilePopup.setEventListeners();
-deleteCardPopup.setEventListeners();
-openImage.setEventListeners();
+popupAvatarForm.setEventListeners();
+popupAddCardForm.setEventListeners();
+popupProfileForm.setEventListeners();
+popupDeleteConfirmation.setEventListeners();
+cardImage.setEventListeners();
 
 // Создание валидации в форме
-const avatarFormValidation = new FormValidator(validationConfig, popupAvatar); // Валидация формы смены аватарки
+const avatarFormValidation = new FormValidator(validationConfig, avatarForm); // Валидация формы смены аватарки
 avatarFormValidation.enableValidation();
 
 const profileFormValidation = new FormValidator(validationConfig, profileEditForm); // Валидация формы редактирования профиля
 profileFormValidation.enableValidation();
 
-const addCardFormValidation = new FormValidator(validationConfig, addCardForm); // Валидация формы добавления карточки в коллекцию
-addCardFormValidation.enableValidation();
+const cardAddFormValidation = new FormValidator(validationConfig, cardAddForm); // Валидация формы добавления карточки в коллекцию
+cardAddFormValidation.enableValidation();
