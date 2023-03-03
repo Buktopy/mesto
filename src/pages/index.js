@@ -1,4 +1,4 @@
-import { api } from '../components/Api';
+import Api from '../components/Api';
 import './index.css';
 import {
     addCardForm, popupAddElement, popupEditProfile, addButton, profileEditButton, inputName, inputAbout,
@@ -11,6 +11,14 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithDeleteConfirmation from '../components/PopupWithDeleteConfirmation';
 import UserInfo from '../components/UserInfo.js';
 import FormValidator from "../components/FormValidator.js";
+
+const api = new Api({
+    baseUrl: "https://mesto.nomoreparties.co/v1/cohort-60",
+    headers: {
+        authorization: '8375e570-e477-4dc4-a6bc-41730914795e',
+        'Content-Type': 'application/json'
+    }
+});
 
 Promise.all([
     api.getUserInfo(),
