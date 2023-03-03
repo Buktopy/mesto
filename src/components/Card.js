@@ -46,10 +46,7 @@ export default class Card {
     }
 
     isLiked() {
-        const isLiked = this._likes.find(
-            user => user._id === this._userId
-        );
-        return isLiked;
+        return this._likes.some(user => user._id === this._userId) 
     }
 
     setLikes(newLikes) {
@@ -72,6 +69,7 @@ export default class Card {
 
     deleteCard() {
         this._card.remove();
+        this._card= null;
     }
 
     _setEventListeners() {                      //Установка обработчиков событий на интерактивные элементы
