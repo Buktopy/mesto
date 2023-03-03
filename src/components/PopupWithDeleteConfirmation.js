@@ -24,7 +24,6 @@ export default class PopupWithDeleteConfirmation extends Popup {
         this._submitButton.addEventListener('click', () => {
             this.startLoading();
             this._submitHandler();
-            this.close();
         });
     }
 

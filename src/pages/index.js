@@ -56,6 +56,7 @@ const cardList = new Section({
                     .deleteCard(id)
                     .then(() => {
                         card.deleteCard();
+                        popupDeleteConfirmation.close();
                     })
                     .catch((err) => console.log(`Ошибка: ${err}`))
                     .finally(() => {
@@ -92,6 +93,7 @@ const popupProfileForm = new PopupWithForm('.popup_edit-profile', (input) => {
     api.setUserInfo(input)
         .then((res) => {
             userInfo.setUserInfo(res);
+            popupProfileForm.close();
         })
         .catch(err => console.log(`Ошибка: ${err}`))
         .finally(() => {
@@ -112,6 +114,7 @@ const popupAvatarForm = new PopupWithForm('.popup_edit-avatar', (input) => {
     api.changeAvatar(input)
         .then((res) => {
             userInfo.setUserInfo(res);
+            popupAvatarForm.close();
         })
         .catch(err => console.log(err))
         .finally(() => {
