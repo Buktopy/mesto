@@ -88,7 +88,7 @@ const cardList = new Section({
 );
 
 // Попап РЕДАКТИРОВАНИЕ ПРОФИЛЯ
-const popupProfileForm = new PopupWithForm(popupEditProfile, (input) => {
+const popupProfileForm = new PopupWithForm('.popup_edit-profile', (input) => {
     api.setUserInfo(input)
         .then((res) => {
             userInfo.setUserInfo(res);
@@ -108,7 +108,7 @@ buttonEditProfile.addEventListener('click', () => {
 });
 
 // Попап СМЕНА АВАТАРА
-const popupAvatarForm = new PopupWithForm(popupAvatar, (input) => {
+const popupAvatarForm = new PopupWithForm('.popup_edit-avatar', (input) => {
     api.changeAvatar(input)
         .then((res) => {
             userInfo.setUserInfo(res);
@@ -125,7 +125,7 @@ buttonChangeAvatar.addEventListener('click', () => {
 })
 
 // Попап ДОБАВЛЕНИЕ КАРТОЧКИ и обработчик открытия
-const popupAddCardForm = new PopupWithForm(popupAddElement, (data) => {
+const popupAddCardForm = new PopupWithForm('.popup_add-element', (data) => {
     api.setCard(data)
         .then((res) => {
             cardList.addItem(res)
@@ -143,8 +143,8 @@ buttonAddCard.addEventListener('click', () => {
 });
 
 // Попап КАРТИНКА КАРТОЧКИ и УДАЛЕНИЕ КАРТОЧКИ
-const cardImage = new PopupWithImage(popupImage);
-const popupDeleteConfirmation = new PopupWithDeleteConfirmation(popupDeleteCard);
+const cardImage = new PopupWithImage('.popup_open-image');
+const popupDeleteConfirmation = new PopupWithDeleteConfirmation('.popup_delete-card');
 
 // Слушатели событий попапов
 popupAvatarForm.setEventListeners();
