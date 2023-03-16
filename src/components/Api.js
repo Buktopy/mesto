@@ -1,4 +1,4 @@
-export default class Api {
+class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
@@ -10,65 +10,43 @@ export default class Api {
       : Promise.reject(`${res.status} ${res.statusText}`);
   }
 
-  getCard() {
-    return fetch(`${this._baseUrl}/cards`, {
-      method: "GET",
+  _makeRequest(url, method, body = null) {
+    return fetch(`${this._baseUrl}/${url}`, {
+      method,
       headers: this._headers,
+      body: body ? JSON.stringify(body) : null,
     }).then((res) => this._checkServerResponse(res));
+  }
+
+  getCard() {
+    return this._makeRequest("cards", "GET");
   }
 
   setCard({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
-      method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({
-        name,
-        link,
-      }),
-    }).then((res) => this._checkServerResponse(res));
+    return this._makeRequest("cards", "POST", { name, link });
   }
 
   deleteCard(_id) {
-    return fetch(`${this._baseUrl}/cards/${_id}`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then((res) => this._checkServerResponse(res));
+    return this._makeRequest(`cards/${_id}`, "DELETE");
   }
 
   getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: "GET",
-      headers: this._headers,
-    }).then((res) => this._checkServerResponse(res));
+    return this._makeRequest("users/me", "GET");
   }
 
   setUserInfo(forms) {
-    return fetch(`${this._baseUrl}/users/me`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: JSON.stringify(forms),
-    }).then((res) => this._checkServerResponse(res));
+    return this._makeRequest("users/me", "PATCH", forms);
   }
 
   changeAvatar(data) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
-      method: "PATCH",
-      headers: this._headers,
-      body: JSON.stringify(data),
-    }).then((res) => this._checkServerResponse(res));
+    return this._makeRequest("users/me/avatar", "PATCH", data);
   }
 
   setLike(_id) {
-    return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
-      method: "PUT",
-      headers: this._headers,
-    }).then((res) => this._checkServerResponse(res));
+    return this._makeRequest(`cards/${_id}/likes`, "PUT");
   }
 
   deleteLike(_id) {
-    return fetch(`${this._baseUrl}/cards/${_id}/likes`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then((res) => this._checkServerResponse(res));
+    return this._makeRequest(`cards/${_id}/likes`, "DELETE");
   }
 }
